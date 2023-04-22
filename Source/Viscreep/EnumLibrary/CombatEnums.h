@@ -45,7 +45,8 @@ enum class EPhysicalDamageType : uint8
 	EPDT_Blunt UMETA(DisplayName = "Blunt"),
 	EPDT_Hack UMETA(DisplayName = "Hack"),
 	EPDT_Slash UMETA(DisplayName = "slash"),
-	EPDT_Pierce UMETA(DisplayName = "Pierce")
+	EPDT_Pierce UMETA(DisplayName = "Pierce"),
+	EPDT_Composure  UMETA(DisplayName = "Composure")
 };
 
 UENUM(BlueprintType)
@@ -70,10 +71,55 @@ enum class EMeleeSwingDirection : uint8
 };
 
 UENUM(BlueprintType)
-enum class ECurrentDamageType : uint8
+enum class ECurrentDamageTypeForTrace : uint8
 {
 	ECDT_None UMETA(DisplayName = "None"),
 	ECDT_Primary UMETA(DisplayName = "Primary"),
 	ECDT_Secondary UMETA(DisplayName = "Secondary"),
 	ECDT_tertiary UMETA(DisplayName = "Secondary"),
 };
+
+UENUM(BlueprintType)
+enum class EAllAttackTypes : uint8
+{
+	
+	EAAT_None UMETA(DisplayName = "None"), 
+	EAAT_Primary UMETA(DisplayName = "Primary"), 
+	EAAT_Secondary UMETA(DisplayName = "Secondary"), 
+	EAAT_Tertiary UMETA(DisplayNAme = "Tertiary"),
+	EAAT_Slam UMETA(DisplayName = "Slam"), 
+	EAAT_Precise UMETA(DisplayName = "Precise"), 
+	EAAT_Kick UMETA(DisplayName = "Kick"), 
+	EAAT_Shove UMETA(DisplayName = "Shove"), 
+	EAAT_WeaponBash UMETA(DisplayName = "WeaponBash"),
+	EAAT_Critical UMETA(DisplayName = "Critical"),
+	EAAT_Counter UMETA(DisplayName = "Counter"),
+	EAAT_ShootWeapon UMETA(DisplayName = "ShootWeapon"),
+	EAAT_Grab UMETA(DisplayName = "Grab"),
+	EAAT_Struggle UMETA(DisplayName = "Struggle"),
+};
+
+UENUM(BlueprintType)
+enum class EAllWeaponStanceTypes : uint8
+{
+	EAWST_None UMETA(DisplayName = "None"),
+	EAWST_OneHandedSword UMETA(DisplayName = "OneHandedSword"),
+	EAWST_OneHandedAxeOrMace UMETA(DisplayName = "OneHandedAxeOrMace"),
+	EAWST_OneHandedThrustingSword UMETA(DisplayName = "OneHandedThrustingSword"),
+	EAWST_TwoHandedBaseGrip UMETA(DisplayName = "TwoHandedBaseGrip"),
+	EAWST_TwoHandedPoleGripSlash UMETA(DisplayName = "TwoHandedPoleGripSlash"),
+	EAWST_TwoHandedPoleGripStab UMETA(DisplayName = "TwoHandedPoleGripStab"),
+};
+
+UENUM(BlueprintType)
+enum class EDamageInflictionAmount : uint8
+{
+	EDIA_None UMETA(DisplayName = "None"),
+	EDIA_Extreme UMETA(DisplayName = "Extreme"),
+	EDIA_Heavy UMETA(DisplayName = "Heavy"),
+	EDIA_Mid UMETA(DisplayName = "Mid"),
+	EDIA_MidLight UMETA(DisplayName = "MidLight"),
+	EDIA_Light UMETA(DisplayName = "Light"),
+	EDIA_Glancing UMETA(DisplayName = "Glancing"),
+};
+

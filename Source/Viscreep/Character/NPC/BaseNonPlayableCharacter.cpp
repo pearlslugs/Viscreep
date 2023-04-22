@@ -2,4 +2,10 @@
 
 
 #include "BaseNonPlayableCharacter.h"
+#include "../Components/NPCCombatComponent.h"
+
+ABaseNonPlayableCharacter::ABaseNonPlayableCharacter()
+{
+	CombatComponent = CreateDefaultSubobject<UNPCCombatComponent>(TEXT("CombatComponent"));
+}
 

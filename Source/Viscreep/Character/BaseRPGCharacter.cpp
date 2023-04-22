@@ -16,16 +16,15 @@
 // Sets default values for this component's properties
 ABaseRPGCharacter::ABaseRPGCharacter()
 {
+	CharacterMontageManagerComponent = CreateDefaultSubobject<UMontageManagerComponent>(TEXT("CharacterMontageManagerComponentUnCursed"));
 	CharacterStatsComponent = CreateDefaultSubobject<UBaseStatsComponent>(TEXT("CharacterStatsComponent"));
 	CharacterHitReactionComponent = CreateDefaultSubobject<UHitReactionComponent>(TEXT("CharacterHitReactionComponent"));
-	CharacterMontageManagerComponent = CreateDefaultSubobject<UMontageManagerComponent>(TEXT("CharacterMontageManagerComponent"));
 	CharacterStateComponent = CreateDefaultSubobject<UCharacterStateComponent>(TEXT("CharacterStateComponent"));
 	CharacterInventoryComponent = CreateDefaultSubobject<UInventoryComponent>(TEXT("CharacterInventoryComponent"));
 	CharacterEquipmentComponent = CreateDefaultSubobject<UEquipmentComponent>(TEXT("CharacterEquipmentComponent"));
 	CharacterPersonalityComponent = CreateDefaultSubobject<UCharacterPersonalityComponent>(TEXT("CharacterPersonalityComponent"));
 	CharacterHistoryComponent = CreateDefaultSubobject<UCharacterHistoryComponent>(TEXT("CharacterHistoryComponent"));
 	CharacterStatusEffectComponent = CreateDefaultSubobject<UStatusEffectComponent>(TEXT("CharacterStatusEffectComponent"));
-
 }
 
 // Called when the game starts
@@ -37,6 +36,11 @@ void ABaseRPGCharacter::BeginPlay()
 
 }
 
+void ABaseRPGCharacter::SetupPlayerInputComponent(UInputComponent* Input)
+{
+	Super::SetupPlayerInputComponent(Input);
+}
+
 
 // Called every frame
 void ABaseRPGCharacter::Tick(float DeltaTime)
@@ -46,4 +50,27 @@ void ABaseRPGCharacter::Tick(float DeltaTime)
 	// ...
 }
 
+bool ABaseRPGCharacter::PlayRPGMontage(FAnimMontageStruct MontageStruct)
+{
+	if(IsValid(MontageStruct.MontageToPlay))
+	{
+		PlayAnimMontage(MontageStruct.MontageToPlay, MontageStruct.PlayRate);
+		// timer to reset character based to reset time
+		return true;
+	}
+	else
+	{
+		return false;
+	}
+}
 
+USkinnedMeshComponent* ABaseRPGCharacter::GetSkinnedMesh()
+{
+	return GetMesh();
+}
+
+FAnimMontageStruct ABaseRPGCharacter::GetAttackAnimationAndSetCombatState(EAllAttackTypes InAttackType, EAttackPosition InAttackPosition)
+{
+		CharacterStateComponent->UpdateCombatState(ECombatState::ECS_Attacking);
+		return CharacterMontageManagerComponent->GetCurrentMontage(InAttackType, InAttackPosition);
+}

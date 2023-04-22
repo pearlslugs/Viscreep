@@ -10,7 +10,9 @@
 			"LoadingPhase": "Default",
 			"AdditionalDependencies": [
 				"ALS",
-				"Engine"
+				"Engine",
+				"ALSExtras",
+				"AIModule"
 			]
 		}
 	],
@@ -21,6 +23,10 @@
 			"TargetAllowList": [
 				"Editor"
 			]
+		},
+		{
+			"Name": "EnhancedInput",
+			"Enabled": true
 		}
 	]
 }

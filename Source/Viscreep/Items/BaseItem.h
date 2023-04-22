@@ -9,7 +9,7 @@
 #include "GameFramework/Character.h"
 #include "BaseItem.generated.h"
 
-class EquipmentComponent;
+class UEquipmentComponent;
 
 UCLASS()
 class VISCREEP_API ABaseItem : public AActor, public IBaseItemInterface
@@ -18,11 +18,17 @@ class VISCREEP_API ABaseItem : public AActor, public IBaseItemInterface
 	
 public:
 	ABaseItem();
+	UPROPERTY(BlueprintReadWrite, EditAnywhere)
 	USkeletalMeshComponent* ItemSkeletalMesh;
+	UPROPERTY(BlueprintReadWrite, EditAnywhere)
 	UStaticMeshComponent* ItemStaticMesh;
-	EquipmentComponent* OwnerEquipment;
+	UPROPERTY(BlueprintReadWrite, EditAnywhere)
+	UEquipmentComponent* OwnerEquipment;
+	UPROPERTY(BlueprintReadWrite, EditAnywhere)
 	UGeneralItem* ContainedDataAsset;
 
+
+	UPROPERTY(BlueprintReadWrite, EditAnywhere)
 	USkeletalMeshComponent* OwnerMesh = nullptr;
 
 protected:
@@ -30,10 +36,7 @@ protected:
 	virtual void BeginPlay() override;
 
 	bool AttachActor(FName SocketName);
-	ACharacter* GetOwnerCharacter();
-	UPrimitiveComponent* GetItemMeshComponent();
-	void UpdateItemMesh();
-	void SimulatePhysicsOnItemMesh();
+	
 	
 	
 

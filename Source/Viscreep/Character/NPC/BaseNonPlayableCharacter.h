@@ -9,9 +9,21 @@
 /**
  * 
  */
+
+class UNPCCombatComponent;
+
 UCLASS()
 class VISCREEP_API ABaseNonPlayableCharacter : public ABaseRPGCharacter
 {
 	GENERATED_BODY()
+public:
+	ABaseNonPlayableCharacter();
+	UPROPERTY(BlueprintReadOnly, EditAnywhere)
+	UNPCCombatComponent* CombatComponent;
+	
+	void NPCAttack()
+	{
+
+	}
 	
 };

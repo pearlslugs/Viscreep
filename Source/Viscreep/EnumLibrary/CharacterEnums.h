@@ -31,14 +31,13 @@ enum class ECharacterActions : uint8
 };
 
 UENUM(BlueprintType)
-enum class ECharacterStates : uint8
+enum class ECombatState : uint8
 {
 	ECS_None UMETA(DisplayName = "None"),
 	ECS_Attacking UMETA(DisplayName = "Attacking"),
 	ECS_InCombat UMETA(DisplayName = "InCombat"),
 	ECS_HitStunned UMETA(DisplayName = "HitStunned"),
 	ECS_Stunned UMETA(DisplayName = "Stunned"),
-	ECS_Interacting UMETA(DisplayName = "Interacting"),
 	ECS_Dodging UMETA(DisplayName = "Dodging"),
 	ECS_KnockedDown UMETA(DisplayName = "KnockedDown"),
 	ECS_ComposureBroken UMETA(DisplayName = "ComposureBroken"),
@@ -49,18 +48,20 @@ enum class ECharacterStates : uint8
 	ECS_Dead UMETA(DisplayName = "Dead"),
 	ECS_Disabled UMETA(DisplayName = "Disabled"),
 	ECS_GeneralAction UMETA(DisplayName = "GeneralAction"),
-	ECS_Parrying UMETA(DisplayName = "Parrying")
+	ECS_Parrying UMETA(DisplayName = "Parrying"),
+	ECS_Strafing UMETA(DisplayName = "Strafing")
 };
 
 UENUM(BlueprintType)
-enum class ECharacterInteractionState : uint8
+enum class ECharacterGeneralState : uint8
 {
-	ECIS_None UMETA(DisplayName = "None"),
-	ECIS_Working UMETA(DisplayName = "Working"),
-	ECIS_Combat UMETA(DisplayName = "Combat"),
-	ECIS_HoldingFoodItem UMETA(DisplayName = "HoldingFoodItem"),
-	ECIS_UsingOffHandTool UMETA(DisplayName = "UsingOffHandTool"),
-	ECIS_UsingInGameMenu UMETA(DisplayName = "UsingInGameMenu"),
+	ECGS_None UMETA(DisplayName = "None"),
+	ECGS_General UMETA(DisplayName = "General"),
+	ECGS_Working UMETA(DisplayName = "Working"),
+	ECGS_Combat UMETA(DisplayName = "Combat"),
+	ECGS_HoldingFoodItem UMETA(DisplayName = "HoldingFoodItem"),
+	ECGS_UsingOffHandTool UMETA(DisplayName = "UsingOffHandTool"),
+	ECGS_UsingInGameMenu UMETA(DisplayName = "UsingInGameMenu"),
 };
 
 UENUM(BlueprintType)
@@ -91,18 +92,30 @@ enum class EBleedingAmount : uint8
 	EBA_Heavy UMETA(DisplayName = "Heavy")
 };
 
+UENUM(BlueprintType)
+enum class EWellbeingStats : uint8
+{
+	EWS_OverallHealth UMETA(DisplayName = "OverallHealth"),
+	EWS_PainLevel UMETA(DisplayName = "OverallHealth"),
+	EWS_Composure UMETA(DisplayName = "OverallHealth"),
+	EWS_MentalHealth UMETA(DisplayName = "OverallHealth"),
+};
+
+UENUM(BlueprintType)
 enum class EBodyPart : uint8
 {
 	EBP_Head UMETA(DisplayName = "Head"),
 	EBP_Neck UMETA(DisplayName = "Neck"),
-	EBP_UpperBody UMETA(DisplayName = "Chest"),
-	EBP_Shoulders UMETA(DisplayName = "Shoulders"),
-	EBP_Arms UMETA(DisplayName = "Arms"),
+	EBP_Torso UMETA(DisplayName = "Torso"),
+	EBP_LeftArm UMETA(DisplayName = "LeftArm"),
+	EBP_RightArm UMETA(DisplayName = "RightArm"),
 	EBP_Hands UMETA(DisplayName = "Hands"),
-	EBP_Legs UMETA(DisplayName = "Legs"),
+	EBP_LeftLeg UMETA(DisplayName = "LeftLeg"),
+	EBP_RightLeg UMETA(DisplayName = "RightLeg"),
 	EBP_Feet UMETA(DisplayName = "Feet")
 };
 
+UENUM(BlueprintType)
 enum class EDefenseOptions : uint8
 {
 	EBP_None UMETA(DisplayName = "None"),
@@ -122,4 +135,17 @@ enum class ECharacterCusomizationOptions : uint8
 	ECCO_Hair UMETA(DisplayName = "Hair"),
 	ECCO_BodyType UMETA(DisplayName = "BodyType"),
 	ECCO_FacialHair UMETA(DisplayName = "FacialHair"),
+};
+
+UENUM(BlueprintType)
+enum class EHostilityTeam : uint8
+{
+	EHT_None UMETA(DisplayName = "None"),
+	EHT_PlayerCharacter UMETA(DisplayName = "PlayerCharacter"),
+	EHT_Feral UMETA(DisplayName = "Feral"),
+	EHT_HostileDueToFaction UMETA(DisplayName = "HostileDueToFaction"),
+	EHT_HostileDueToCrime UMETA(DisplayName = "HostileDueToCrime"),
+	EHT_HostileDueToAnger UMETA(DisplayName = "HostileDueToAnger"),
+	EHT_AllyInCombat UMETA(DisplayName = "AllyInCombat"),
+	EHT_NotHostile UMETA(DisplayName = "NotHostile"),
 };

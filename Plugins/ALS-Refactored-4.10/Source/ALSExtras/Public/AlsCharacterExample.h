@@ -59,6 +59,15 @@ protected:
 	UPROPERTY(EditDefaultsOnly, BlueprintReadWrite, Category = "Settings|Als Character Example")
 	TObjectPtr<UInputAction> SwitchShoulderAction;
 
+	UPROPERTY(EditDefaultsOnly, BlueprintReadWrite, Category = "Settings|Als Character Example")
+	TObjectPtr<UInputAction> LockOnAction;
+
+	UPROPERTY(EditDefaultsOnly, BlueprintReadWrite, Category = "Settings|Als Character Example")
+	TObjectPtr<UInputAction> PrimaryAttackAction;
+
+	UPROPERTY(EditDefaultsOnly, BlueprintReadWrite, Category = "Settings|Als Character Example")
+	TObjectPtr<UInputAction> DodgeAction;
+
 	UPROPERTY(EditDefaultsOnly, BlueprintReadWrite, Category = "Settings|Als Character Example", Meta = (ClampMin = 0, ForceUnits = "x"))
 	float LookUpMouseSensitivity{3.0f};
 
@@ -89,32 +98,32 @@ protected:
 	virtual void SetupPlayerInputComponent(UInputComponent* Input) override;
 
 private:
+	UFUNCTION(BlueprintCallable)
 	void InputLookMouse(const FInputActionValue& ActionValue);
-
+	UFUNCTION(BlueprintCallable)
 	void InputLook(const FInputActionValue& ActionValue);
-
+	UFUNCTION(BlueprintCallable)
 	void InputMove(const FInputActionValue& ActionValue);
-
+	UFUNCTION(BlueprintCallable)
 	void InputSprint(const FInputActionValue& ActionValue);
-
+	UFUNCTION(BlueprintCallable)
 	void InputWalk();
-
+	UFUNCTION(BlueprintCallable)
 	void InputCrouch();
-
+	UFUNCTION(BlueprintCallable)
 	void InputJump(const FInputActionValue& ActionValue);
-
+	UFUNCTION(BlueprintCallable)
 	void InputAim(const FInputActionValue& ActionValue);
-
+	UFUNCTION(BlueprintCallable)
 	void InputRagdoll();
-
+	UFUNCTION(BlueprintCallable)
 	void InputRoll();
-
+	UFUNCTION(BlueprintCallable)
 	void InputRotationMode();
-
+	UFUNCTION(BlueprintCallable)
 	void InputViewMode();
-
+	UFUNCTION(BlueprintCallable)
 	void InputSwitchShoulder();
-
 	// Debug
 
 public:

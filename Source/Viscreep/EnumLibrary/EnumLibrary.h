@@ -65,6 +65,7 @@ enum class EInventoryType : uint8
 	EIT_Equipped UMETA(DisplayName = "Equipped")
 };
 
+UENUM(BlueprintType)
 enum class EEquipmentSlot : uint8
 {
 	EES_Head UMETA(DisplayName = "Head"),
@@ -83,7 +84,7 @@ enum class EEquipmentSlot : uint8
 	EES_BackPack UMETA(DisplayName = "BackPack"),
 	EES_WaistPack UMETA(DisplayName = "WaistPack")
 };
-
+UENUM(BlueprintType)
 enum class EWeaponEquipType : uint8
 {
 	EWET_None UMETA(DisplayName = "None"),
@@ -92,7 +93,7 @@ enum class EWeaponEquipType : uint8
 	EWET_Either UMETA(DisplayName = "Either")
 
 };
-
+UENUM(BlueprintType)
 enum class EEquipmentLayerType : uint8
 {
 	EEL_Under UMETA(DisplayName = "Under"),
@@ -238,9 +239,33 @@ enum class EItemUseType : uint8
 	EIUT_Plantable UMETA(DisplayName = "Plantable")
 };
 
+UENUM(BlueprintType)
+enum class EBufferKey : uint8
+{
+	EBK_None UMETA(DisplayName = "None"),
+	EBK_Attack UMETA(DisplayName = "Attack"),
+	EBK_PrimaryAttack UMETA(DisplayName = "PrimaryAttack"),
+	EBK_Dodge UMETA(DisplayName = "Dodge"),
+	EBK_Parry UMETA(DisplayName = "Parry"),
+	EBK_Jump UMETA(DisplayName = "Jump"),
+	EBK_UseItem UMETA(DisplayName = "UseItem"),
+	EBK_SwitchQuickslotItem UMETA(DisplayName = "SwitchQuickslotItem"),
+	EBK_ConsumeItem UMETA(DisplayName = "ConsumeItem"),
+	EBK_Interact UMETA(DisplayName = "Interact"),
+	EBK_ToggleCombatMode UMETA(DisplayName = "ToggleCombatMode"),
+	EBK_GetUp UMETA(DisplayName = "GetUp"),
+	EBK_UseLeftHandTool UMETA(DisplayName = "UseLeftHandTool"),
+	EBK_Zoom UMETA(DisplayName = "Zoom"),
+	EBK_Aim UMETA(DisplayName = "Aim"),
+};
 
-
-/***
-* Animation Enums
-***/
-
+UENUM(BlueprintType)
+enum class EAuxBufferKey : uint8
+{
+	EABK_None UMETA(DisplayName = "None"),
+	EABK_Forward UMETA(DisplayName = "None"),
+	EABK_Back UMETA(DisplayName = "None"),
+	EABK_Left UMETA(DisplayName = "None"),
+	EABK_Right UMETA(DisplayName = "None"),
+	EABK_HoldingHotkeyButton UMETA(DisplayName = "None"),
+};

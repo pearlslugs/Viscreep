@@ -47,6 +47,12 @@ namespace AlsOverlayModeTags
 	UE_DEFINE_GAMEPLAY_TAG(Binoculars, TEXT("Als.OverlayMode.Binoculars"))
 	UE_DEFINE_GAMEPLAY_TAG(Box, TEXT("Als.OverlayMode.Box"))
 	UE_DEFINE_GAMEPLAY_TAG(Barrel, TEXT("Als.OverlayMode.Barrel"))
+	UE_DEFINE_GAMEPLAY_TAG(OneHandedSword, TEXT("Als.OverlayMode.OneHandedSword"))
+	UE_DEFINE_GAMEPLAY_TAG(OneHandedAxeOrMace, TEXT("Als.OverlayMode.OneHandedAxeOrMace"))
+	UE_DEFINE_GAMEPLAY_TAG(OneHandedThrustingSword, TEXT("Als.OverlayMode.OneHandedThrustingSword"))
+	UE_DEFINE_GAMEPLAY_TAG(TwoHandedBaseGrip, TEXT("Als.OverlayMode.TwoHandedBaseGrip"))
+	UE_DEFINE_GAMEPLAY_TAG(TwoHandedPoleGripSlash, TEXT("Als.OverlayMode.TwoHandedPoleGripSlash"))
+	UE_DEFINE_GAMEPLAY_TAG(TwoHandedPoleGripStab, TEXT("Als.OverlayMode.TwoHandedPoleGripStab"))
 }
 
 namespace AlsLocomotionActionTags

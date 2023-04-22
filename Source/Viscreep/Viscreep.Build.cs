@@ -8,7 +8,7 @@ public class Viscreep : ModuleRules
 	{
 		PCHUsage = PCHUsageMode.UseExplicitOrSharedPCHs;
 	
-		PublicDependencyModuleNames.AddRange(new string[] { "Core", "CoreUObject", "Engine", "InputCore", "ALS" });
+		PublicDependencyModuleNames.AddRange(new string[] { "Core", "CoreUObject", "AIModule", "NavigationSystem", "Engine", "InputCore", "EnhancedInput", "ALS", "ALSExtras", "GameplayTasks" });
 
 		PrivateDependencyModuleNames.AddRange(new string[] { });
 

@@ -8,11 +8,11 @@
 #include "HitReactionEnums.generated.h"
 
 UENUM(BlueprintType)
-enum class EHitReactionTypes : uint8
+enum class EHitReactionCatagory : uint8
 {
 	EHRT_None UMETA(DisplayName = "None"),
 	EHRT_BlockReact UMETA(DisplayName = "BlockReact"),
-	EHRT_HitStone UMETA(DisplayName = "HitStun"),
+	EHRT_HitStun UMETA(DisplayName = "HitStun"),
 	EHRT_KnockOver UMETA(DisplayName = "KnockOver"),
 	EHRT_Procedural UMETA(DisplayName = "Procedural")
 };

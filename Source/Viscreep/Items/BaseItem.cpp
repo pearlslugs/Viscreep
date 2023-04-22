@@ -1,15 +1,17 @@
 // Fill out your copyright notice in the Description page of Project Settings.
 
+#include "BaseItem.h"
 #include "Engine/StaticMesh.h"
 #include "Engine/SkeletalMesh.h"
-#include "BaseItem.h"
 
 // Sets default values for this component's properties
 ABaseItem::ABaseItem()
 {
 	CreateDefaultSubobject<USceneComponent>(TEXT("DefaultRoot"));
-	ItemSkeletalMesh = CreateDefaultSubobject<USkeletalMeshComponent>(TEXT("PlayerInputBufferComponent"));
-	ItemStaticMesh = CreateDefaultSubobject<UStaticMeshComponent>(TEXT("PlayerCombatComponent"));
+	ItemSkeletalMesh = CreateDefaultSubobject<USkeletalMeshComponent>(TEXT("SkeletalMesh"));
+	ItemStaticMesh = CreateDefaultSubobject<UStaticMeshComponent>(TEXT("StaticMesh"));
+	ItemSkeletalMesh->SetupAttachment(RootComponent);
+	ItemStaticMesh->SetupAttachment(RootComponent);
 }
 
 // Called when the game starts
@@ -40,4 +42,7 @@ bool ABaseItem::AttachActor(FName InSocketName)
 	}
 	return false;
 }
+
+
+
 
